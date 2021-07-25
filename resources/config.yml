@@ -3,7 +3,7 @@
 # If your language is missing, you can add it on GitHub!
 # Available languages (ISO639-2):
 # eng, ara, cat, ces, chi, dan, deu, ell, epo, esp, est, fre, geo, hin, ind, ita, jpn, kor, lit, mar, mas, nld, nor, pol, por, rom, rus, slo, swa, swe, tgl, tha, zho
-language: eng
+language: zho
 show-startup-icon: false
 limit: -1
 tool-range: 100
