@@ -63,7 +63,7 @@ abstract class Shape implements Serializable
 	 * @return Generator
 	 * @throws Exception
 	 */
-	abstract public function getBlocks(AsyncChunkManager|World $manager, BlockPalette $filterblocks, int $flags = API::FLAG_BASE): Generator;
+	abstract public function getBlocks($manager, BlockPalette $filterblocks, int $flags = API::FLAG_BASE): Generator;
 
 	/**
 	 * Returns a flat layer of all included x z positions in selection
@@ -72,14 +72,14 @@ abstract class Shape implements Serializable
 	 * @return Generator
 	 * @throws Exception
 	 */
-	abstract public function getLayer(AsyncChunkManager|World $manager, int $flags = API::FLAG_BASE): Generator;
+	abstract public function getLayer($manager, int $flags = API::FLAG_BASE): Generator;
 
 	/**
 	 * @param World|AsyncChunkManager $manager
 	 * @return string[] fastSerialized chunks
 	 * @throws Exception
 	 */
-	abstract public function getTouchedChunks(AsyncChunkManager|World $manager): array;
+	abstract public function getTouchedChunks($manager): array;
 
 	abstract public function getAABB(): AxisAlignedBB;
 

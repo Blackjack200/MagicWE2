@@ -44,7 +44,7 @@ class Flood extends WETool
 	 * @return Generator
 	 * @throws Exception
 	 */
-	public function getBlocks(AsyncChunkManager|World $manager, BlockPalette $filterblocks, int $flags = API::FLAG_BASE): Generator
+	public function getBlocks($manager, BlockPalette $filterblocks, int $flags = API::FLAG_BASE): Generator
 	{
 		$this->validateChunkManager($manager);
 		$this->y = $this->getCenter()->getFloorY();
@@ -64,7 +64,7 @@ class Flood extends WETool
 	 * @return Generator
 	 * @throws Exception
 	 */
-	public function getLayer(AsyncChunkManager|World $manager, int $flags = API::FLAG_BASE): Generator
+	public function getLayer($manager, int $flags = API::FLAG_BASE): Generator
 	{
 		$this->validateChunkManager($manager);
 		foreach ($this->getBlocks($manager, BlockPalette::CREATE()) as $block) {
@@ -78,7 +78,7 @@ class Flood extends WETool
 	 * @throws InvalidArgumentException
 	 * @noinspection SlowArrayOperationsInLoopInspection
 	 */
-	private function walk(AsyncChunkManager|World $manager): array
+	private function walk($manager): array
 	{
 		$this->validateChunkManager($manager);
 		/** @var Block[] $walkTo */
@@ -101,7 +101,7 @@ class Flood extends WETool
 	 * @return Generator
 	 * @throws InvalidArgumentException
 	 */
-	private function getHorizontalSides(AsyncChunkManager|World $manager, Vector3 $vector3): Generator
+	private function getHorizontalSides($manager, Vector3 $vector3): Generator
 	{
 		$this->validateChunkManager($manager);
 		foreach ([Facing::NORTH, Facing::SOUTH, Facing::WEST, Facing::EAST] as $vSide) {
@@ -122,7 +122,7 @@ class Flood extends WETool
 	 * @return array
 	 * @throws InvalidArgumentException
 	 */
-	public function getTouchedChunks(AsyncChunkManager|World $chunkManager): array
+	public function getTouchedChunks($chunkManager): array
 	{
 		$this->validateChunkManager($chunkManager);
 		$maxRadius = sqrt($this->limit / M_PI);

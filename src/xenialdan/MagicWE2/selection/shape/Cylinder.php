@@ -42,7 +42,7 @@ class Cylinder extends Shape
 	 * @return Generator
 	 * @throws Exception
 	 */
-	public function getBlocks(AsyncChunkManager|World $manager, BlockPalette $filterblocks, int $flags = API::FLAG_BASE): Generator
+	public function getBlocks($manager, BlockPalette $filterblocks, int $flags = API::FLAG_BASE): Generator
 	{
 		$this->validateChunkManager($manager);
 		$centerVec2 = new Vector2($this->getPasteVector()->getX(), $this->getPasteVector()->getZ());
@@ -77,7 +77,7 @@ class Cylinder extends Shape
 	 * @return Generator
 	 * @throws Exception
 	 */
-	public function getLayer(AsyncChunkManager|World $manager, int $flags = API::FLAG_BASE): Generator
+	public function getLayer($manager, int $flags = API::FLAG_BASE): Generator
 	{
 		$this->validateChunkManager($manager);
 		$centerVec2 = new Vector2($this->getPasteVector()->getX(), $this->getPasteVector()->getZ());
@@ -96,7 +96,7 @@ class Cylinder extends Shape
 	 * @return string[] fastSerialized chunks
 	 * @throws Exception
 	 */
-	public function getTouchedChunks(AsyncChunkManager|World $manager): array
+	public function getTouchedChunks($manager): array
 	{//TODO optimize to remove "corner" chunks
 		$this->validateChunkManager($manager);
 		$maxX = ($this->getMaxVec3()->x + 1) >> 4;

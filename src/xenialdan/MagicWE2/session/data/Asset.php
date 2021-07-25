@@ -34,7 +34,8 @@ class Asset implements JsonSerializable
 	const TYPE_MCSTRUCTURE = 'structure';
 	const TYPE_CLIPBOARD = 'clipboard';//TODO consider if this is even worth the effort, or instead just convert it to mcstructure before storing
 
-	public Schematic|SingleClipboard|MCStructure $structure;
+	/** @var Schematic|SingleClipboard|MCStructure */
+	public $structure;
 	public string $filename;//used as identifier
 	public string $displayname;
 	public bool $locked = false;
@@ -50,7 +51,7 @@ class Asset implements JsonSerializable
 	 * @param string|null $ownerXuid
 	 * @param bool $shared
 	 */
-	public function __construct(string $filename, Schematic|SingleClipboard|MCStructure $value, bool $locked = false, ?string $ownerXuid = null, bool $shared = false)
+	public function __construct(string $filename, $value, bool $locked = false, ?string $ownerXuid = null, bool $shared = false)
 	{
 		$this->filename = $filename;
 		$this->displayname = pathinfo($filename, PATHINFO_FILENAME);
